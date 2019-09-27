@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Whitehat · Games</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <style>
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        .avatar{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark  bg-dark container">
+                <a class="navbar-brand" href="#">Whitehat Gaming</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <router-link class="nav-item active nav-link" to="/"> Home </router-link>
+                        </li>
+                        <li>
+                            <router-link class="nav-item nav-link" to="games"> Game List </router-link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main role="main">
+            <router-view></router-view>
+            <!-- FOOTER -->
+            <footer class="container">
+                <p>&copy; 2019 Whitehat Game, Inc. </p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Vue Components -->
+    <script src="pages/home.vue.js"></script>
+    <script src="pages/games.vue.js"></script>
+   
+    <script>
+        var routes = [{
+                path: '/',
+                component: Home
+            },
+            {
+                path: '/games',
+                component: Game
+            }
+            
+            
+        ];
+        var router = new VueRouter({
+            routes: routes,
+            base: '/'
+        });
+        var app = new Vue({
+            el: '#app',
+            router: router,
+        })
+    </script>
+</body>
+
+</html>
